@@ -11,17 +11,21 @@ public class SimplePrinter implements Printer {
 	}
 
 }
+
+
+
 /*
- * This implementation follows the Liskov Substitution Principle (LSP).
+ * This implementation follows the Interface Segregation Principle (ISP).
  *
  * SimplePrinter implements only the Printer interface
  * because it only supports printing functionality.
  *
- * Unlike the bad design, it is not forced to implement
- * unsupported methods like scan() or copy().
+ * It is not forced to implement unnecessary methods
+ * like scan() or copy().
  *
- * This makes the class fully substitutable for Printer
- * without breaking client expectations.
+ * This prevents unused methods and avoids
+ * UnsupportedOperationException scenarios.
  *
- * The design is clean, safe, and aligned with proper abstraction.
+ * The design ensures that classes depend only
+ * on the methods they actually use.
  */

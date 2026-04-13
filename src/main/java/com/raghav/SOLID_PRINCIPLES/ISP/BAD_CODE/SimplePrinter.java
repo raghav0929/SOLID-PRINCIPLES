@@ -21,22 +21,21 @@ public class SimplePrinter implements Machine {
 	}
 
 }
+
+
+
 /*
- * This implementation violates the Liskov Substitution Principle (LSP).
+ * This implementation violates the Interface Segregation Principle (ISP).
  *
- * The Machine interface forces every implementing class to provide
- * print(), scan(), and copy() methods.
+ * The Machine interface contains multiple methods
+ * such as print(), scan(), and copy().
  *
- * However, SimplePrinter only supports printing.
- * It is still forced to implement scan() and copy(),
- * where it throws UnsupportedOperationException.
+ * SimplePrinter is forced to implement all these methods
+ * even though it only supports printing.
  *
- * This is a violation of LSP because a subclass or implementation
- * should be completely replaceable for its parent type without
- * breaking expected behavior.
+ * This leads to unnecessary methods and runtime exceptions
+ * for unsupported operations.
  *
- * If any code uses Machine and calls scan() or copy(),
- * substituting it with SimplePrinter will cause runtime failure.
- *
- * This indicates that the abstraction is poorly designed.
+ * Classes should not be forced to depend on methods
+ * they do not need.
  */

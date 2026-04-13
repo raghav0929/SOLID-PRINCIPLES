@@ -27,16 +27,17 @@ public class MultiPurposeMachine implements Printer,CopyMachine,Scanner{
 }
 
 /*
- * This implementation follows the Liskov Substitution Principle (LSP).
+ * This implementation follows the Interface Segregation Principle (ISP).
  *
- * MultiPurposeMachine implements only the interfaces
- * that match its actual capabilities: printing, scanning, and copying.
+ * Instead of using one large interface with multiple methods,
+ * the functionality is divided into smaller, specific interfaces
+ * such as Printer, Scanner, and CopyMachine.
  *
- * Since it fully supports all the behaviors promised by
- * Printer, Scanner, and CopyMachine,
- * it can safely replace any of these abstractions
- * without causing unexpected behavior.
+ * MultiPurposeMachine implements all the interfaces
+ * because it supports all these operations.
  *
- * This ensures reliable substitution and maintains
- * the contract defined by the parent interfaces.
+ * This design keeps interfaces focused and allows classes
+ * to implement only the behaviors they actually need.
+ *
+ * It improves flexibility, readability, and maintainability.
  */
